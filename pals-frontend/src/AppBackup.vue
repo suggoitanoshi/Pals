@@ -6,12 +6,14 @@
 </template>
 
 <script>
-import SideMenu from './views/SideMenu.vue'
+import SideMenu from './components/SideMenu.vue'
+import Chat from './components/Chat.vue'
 
 export default {
   name: 'App',
   components: {
-    SideMenu
+    SideMenu,
+    Chat
   }
 }
 </script>
