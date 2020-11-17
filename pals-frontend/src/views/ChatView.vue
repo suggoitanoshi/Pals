@@ -1,6 +1,8 @@
 <template>
-	<SideMenu v-if='name=="Bobby"' :name="name"/>
-	<Chat :name="name"/>
+	<div class='container'>
+		<SideMenu v-if='name=="Bobby"' :name="name"/>
+		<Chat :name="name" alamat="apa gitu"/>
+	</div>
 </template>
 
 <script>

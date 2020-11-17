@@ -35,7 +35,7 @@ export default{
 			hintText: [],
 		}
 	},
-	props: ['name'],
+	props: ['name', 'alamat'],
 	methods: {
 		sendChat: function(msg){
 			const message = this.modelText || msg;
@@ -61,7 +61,12 @@ export default{
 		});
 		this.socket.on('hint', hint => {
 			console.log(hint);
-			this.hintText = hint
+			if(hint.hintType == 'text')
+				this.hintText = hint.hintText
+			else if(hint.hintType == 'nama')
+				this.hintText = [this.name]
+			else if(hint.hintType == 'alamat')
+				this.hintText = [this.alamat]
 		});
 	},
 	beforeUnmount: function(){

@@ -17,7 +17,14 @@ let activePartner = {};
 
 io.on('connection', client => {
   console.log(`${client.id} connected`);
-	client.on('auth', data => data == 'A' ? activeUser = client : activePartner = client);
+	client.on('auth', data =>{
+		data == 'A' ? activeUser = client : activePartner = client;
+		client.ident = data;
+	});
+	client.on('name', name => {
+		client.name = name;
+		io.sockets.sockets.forEach((socket) => socket.broadcast.emit('name', socket.name));
+	});
   client.on('message', async msg => {
 		if(client.ident != 'A'){
 			const body = await fetch(kataHook, {
@@ -36,7 +43,8 @@ io.on('connection', client => {
 				})
 			});
 		}
-    io.emit('message', msg);
+    client.broadcast.emit('message', msg);
+    console.log(`${client.id}, ${client.auth}, ${msg}`);
   });
   client.on('disconnect', () => {
     io.emit('free');
@@ -44,20 +52,28 @@ io.on('connection', client => {
 });
 
 router.post('/', body(), ctx => {
-	console.log(ctx.request.body);
 	const body = ctx.request.body;
+	console.log(body);
 	const content = body.messages[0].content;
-	let hint = [];
+	let hint = {hintType: 'text'};
 	if(content == 'nama'){
-		hint = ['Nama Pengguna'];
+		hint.hintType = 'nama';
 	}
 	else if(content == 'makan'){
-		hint = ['Nasi goreng', 'Mie goreng', 'Kentang goreng'];
+		hint.hintText = ['Nasi goreng', 'Mie goreng', 'Kentang goreng', 'terserah', 'mau makan apa'];
+	}
+	else if (content == 'minum') {
+		hint.hintText = ['Jus Apel','Air Putih','Susu'];
+	}
+	else if (content == 'alamat') {
+		hint.hintType = 'alamat';
+	}
+	else if (content == 'apakah') {
+		hint.hintText = ['Ya','Tidak','Mungkin'];
 	}
 	else{
-		hint = ['Boleh ulangi?'];
-	}
-	console.log(activeUser.id);
+		hint.hintText = ['boleh ulangi?'];
+	}			
 	activeUser.emit('hint', hint);
 	ctx.status = 200;
 })

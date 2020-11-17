@@ -17,6 +17,24 @@ flows:
                 classifier:
                     nlu: pertanyaan
                     match: makan
+            tanyaMinum:
+                initial: true
+                type: text
+                classifier:
+                    nlu: pertanyaan
+                    match: minum
+            tanyaApakah:
+                initial: true
+                type: text
+                classifier:
+                    nlu: pertanyaan
+                    match: apakah
+            tanyaAlamat:
+                initial: true
+                type: text
+                classifier:
+                    nlu: pertanyaan
+                    match: alamat
             fallback:
                 type: text
                 fallback: true
@@ -26,24 +44,45 @@ flows:
                 transitions:
                     stateNama: intent == 'tanyaNama'
                     stateMakan: intent == 'tanyaMakan'
+                    stateMinum: intent == 'tanyaMinum'
+                    stateApakah: intent == 'tanyaApakah'
+                    stateAlamat: intent == 'tanyaAlamat'
                     fallback: intent == 'fallback'
             stateNama:
                 end: true
                 action:
                     name: text
                     options:
-                      text: nama
+                        text: nama
             stateMakan:
                 end: true
                 action:
                     name: text
                     options:
                         text: makan
+            stateMinum:
+                end: true
+                action:
+                    name: text
+                    options:
+                        text: minum
+            stateApakah:
+                end: true
+                action:
+                    name: text
+                    options:
+                        text: apakah
+            stateAlamat:
+                end: true
+                action:
+                    name: text
+                    options:
+                        text: alamat
             fallback:
                 action:
                     name: text
                     options:
-                        text: no
+                        text: 'no'
 nlus:
     pertanyaan:
         type: keyword
@@ -61,5 +100,13 @@ nlus:
                 makan:
                     - makan apa
                     - mau makan apa
+                minum:
+                    - mau minum apa
+                    - minum apa
+                apakah:
+                    - apakah
+                alamat:
+                    - kamu tinggal dimana
+                    - alamat kamu dimana
+                    - rumahmu dimana
 tag: null
-
