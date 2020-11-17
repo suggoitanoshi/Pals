@@ -1,12 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import SideMenu from '../views/SideMenu.vue'
+import Home from '../views/Home.vue'
+import ChatView from '../views/ChatView.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: SideMenu
+    component: Home
   },
+	{
+		path: '/chat/:name',
+		name: 'Chat',
+		component: ChatView,
+		props: true
+	},
   {
     path: '/about',
     name: 'About',

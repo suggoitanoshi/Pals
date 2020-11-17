@@ -1,20 +1,13 @@
 <template>
-	<div>
-		<SideMenu />
-		<Chat />
+	<div class='container'>
+		<router-view />
 	</div>
 </template>
 
 <script>
-import SideMenu from './views/SideMenu.vue'
-import Chat from './views/Chat'
 
 export default {
   name: 'App',
-  components: {
-    SideMenu,
-    Chat
-  }
 }
 </script>
 
@@ -24,4 +17,11 @@ export default {
     display : flex;
     flex-flow : row;
   }
+	.container{
+		display: flex;
+		flex-flow: row;
+		width: 100vw;
+		height: 100vh;
+		box-sizing: border-box;
+	}
 </style>
