@@ -15,7 +15,6 @@
 </script>
 
 <style scoped>
-		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 		.container-menu{
 				display : flex;
 				flex-flow : column;
@@ -54,6 +53,7 @@
 				text-align:center;
 				font-family:'Roboto',sans-serif;
 				color : #2053AF;
+				text-decoration:none;
 		}
 
 		.link {

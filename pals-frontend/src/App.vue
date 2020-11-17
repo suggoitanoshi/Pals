@@ -12,10 +12,13 @@ export default {
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
   body{
     margin:0px;
     display : flex;
     flex-flow : row;
+	font-family : 'Roboto',sans-serif;
+	font-weight: 300;
   }
 	.container{
 		display: flex;
