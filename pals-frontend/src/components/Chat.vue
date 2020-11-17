@@ -9,14 +9,15 @@
 					<div v-if="outgoing" class='message outgoing'>{{ outgoing }}</div>
 				</div>
 				<div class='container-input' v-if='useHint'>
-					<ul>
+					<div class="Buttons">
 						<input type='button' v-for="hint in hintText" :key="hint"
 						:value='hint' @click="sendChat(hint)">
-					</ul>
+					</div>
 				</div>
 				<div v-else class='container-input'>
 					<input type='text' v-model='modelText' placeholder="Your Message">
-					<input type='button' value='Send' @click="sendChat">
+					<button @click="sendChat()"><i class="fa fa-paper-plane-o"></i></button>
+					<!-- <input type='button' value='Send' @click="sendChat()"> -->
 				</div>
     </div>
 </template>
@@ -35,10 +36,11 @@ export default{
 			hintText: [],
 		}
 	},
-	props: ['name', 'alamat'],
+	props: ['name', 'alamat', 'umur'],
 	methods: {
 		sendChat: function(msg){
 			const message = this.modelText || msg;
+			if(!message) return;
 			this.socket.emit('message', message);
 			if(this.useHint) this.hintText = [];
 			else this.modelText = '';
@@ -67,6 +69,8 @@ export default{
 				this.hintText = [this.name]
 			else if(hint.hintType == 'alamat')
 				this.hintText = [this.alamat]
+			else if(hint.hintType == 'umur')
+				this.hintText = [`umur saya ${this.umur}`]
 		});
 	},
 	beforeUnmount: function(){
@@ -82,7 +86,6 @@ export default{
     .container-header{
         display : flex;
         flex-flow : row;
-        width : 70vw;
         height : 7vw;
         min-height:80px;
         border-bottom : 1px solid #C5C4C4;
@@ -108,10 +111,16 @@ export default{
         color : #565656;
     }
 
+.container-chat{
+	width: 100%;
+	box-sizing: border-box;
+}
 .container-message{
 	padding: 1rem .3rem;
 	display: flex;
 	flex-flow: column;
+	height: 35%;
+	width: 100%;
 }
 .container-input{
 	padding: 1rem 5rem;
@@ -127,15 +136,47 @@ export default{
 	display: block;
 	padding: 1rem 1.5rem;
 	font-size: 1.5rem;
-	width: fit-content;
 	margin: 1.5rem 3rem;
 	border-radius: .5rem;
+	word-wrap: break-word;
+	max-width: 80%;
+	box-sizing: border-box;
 }
 .message.incoming{
 	background: lightblue;
 }
 .message.outgoing{
 	background: lightgray;
-	align-self: end;
+	align-self: flex-end;
+}
+input[type="button"] {
+	border-radius: 10px;
+	background-color: #4CAF50;
+	margin: 5px;
+	padding:10px;
+	border: 0;
+	box-shadow: none;
+	width: 100%;
+}
+input[type="button"]:hover, button:hover{
+	background-color: black;
+	color:white;
+
+}
+input[type=text] {
+  transition: width 0.4s ease-in-out;
+	width: 25%;
+}
+
+input[type=text]:focus, input[type=text]:hover {
+  width: 100%;
+}
+.Buttons{
+	width: 75%;
+	align-content:center;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	height: 30%;
 }
 </style>

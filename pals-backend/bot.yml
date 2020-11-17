@@ -35,9 +35,24 @@ flows:
                 classifier:
                     nlu: pertanyaan
                     match: alamat
-            fallback:
+            tanyaUmur:
+                initial: true
                 type: text
-                fallback: true
+                classifier:
+                    nlu: pertanyaan
+                    match: umur
+            tanyaGoldar:
+                initial: true
+                type: text
+                classifier:
+                    nlu: pertanyaan
+                    match: goldar
+            tanyaKabar:
+                initial: true
+                type: text
+                classifier:
+                    nlu: pertanyaan
+                    match: kabar
         states:
             start:
                 initial: true
@@ -47,7 +62,11 @@ flows:
                     stateMinum: intent == 'tanyaMinum'
                     stateApakah: intent == 'tanyaApakah'
                     stateAlamat: intent == 'tanyaAlamat'
-                    fallback: intent == 'fallback'
+                    stateKabar: intent == 'tanyaKabar'
+                    stateUmur: intent == 'tanyaUmur'
+                    stateGoldar: intent== 'tanyaGoldar'
+                    fallback:
+                        fallback: true
             stateNama:
                 end: true
                 action:
@@ -78,6 +97,24 @@ flows:
                     name: text
                     options:
                         text: alamat
+            stateKabar:
+                end: true
+                action:
+                    name: text
+                    options:
+                        text: kabar
+            stateGoldar:
+                end: true
+                action:
+                    name: text
+                    options:
+                        text: goldar
+            stateUmur:
+                end: true
+                action:
+                    name: text
+                    options:
+                        text: umur
             fallback:
                 action:
                     name: text
@@ -109,4 +146,13 @@ nlus:
                     - kamu tinggal dimana
                     - alamat kamu dimana
                     - rumahmu dimana
+                umur:
+                    - umur kamu berapa
+                    - berapa umur kamu
+                goldar:
+                    - golongan darahmu apa
+                    - apa golongan darahmu
+                kabar:
+                    - apa kabar
+                    - bagaimana perasaanmu sekarang
 tag: null

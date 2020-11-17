@@ -71,6 +71,15 @@ router.post('/', body(), ctx => {
 	else if (content == 'apakah') {
 		hint.hintText = ['Ya','Tidak','Mungkin'];
 	}
+	else if (content == 'umur') {
+		hint.hintType = 'umur';
+	}
+	else if (content == 'goldar') {
+		hint.hintText = ['A','B','AB','O'];
+	}
+	else if (content == 'kabar') {
+		hint.hintText = ['Baik','Kurang Baik','Saya tidak Nyaman','Tidak Baik','Bisakah kita pergi dari sini'];
+	}
 	else{
 		hint.hintText = ['boleh ulangi?'];
 	}			
