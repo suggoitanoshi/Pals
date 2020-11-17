@@ -22,7 +22,11 @@
   },
   "homepage": "https://github.com/suggoitanoshi/Pals#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "koa": "^2.13.0",
-    "koa-better-router": "^2.1.1"
+    "koa-better-router": "^2.1.1",
+    "koa-body": "^4.2.0",
+    "node-fetch": "^2.6.1",
+    "socket.io": "^3.0.1"
   }
 }

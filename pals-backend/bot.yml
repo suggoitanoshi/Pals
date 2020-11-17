@@ -1,0 +1,65 @@
+schema: kata.ai/schema/kata-ml/1.0
+name: pals
+desc: My First Bot
+lang: id
+flows:
+    hello:
+        intents:
+            tanyaNama:
+                initial: true
+                type: text
+                classifier:
+                    nlu: pertanyaan
+                    match: nama
+            tanyaMakan:
+                initial: true
+                type: text
+                classifier:
+                    nlu: pertanyaan
+                    match: makan
+            fallback:
+                type: text
+                fallback: true
+        states:
+            start:
+                initial: true
+                transitions:
+                    stateNama: intent == 'tanyaNama'
+                    stateMakan: intent == 'tanyaMakan'
+                    fallback: intent == 'fallback'
+            stateNama:
+                end: true
+                action:
+                    name: text
+                    options:
+                      text: nama
+            stateMakan:
+                end: true
+                action:
+                    name: text
+                    options:
+                        text: makan
+            fallback:
+                action:
+                    name: text
+                    options:
+                        text: no
+nlus:
+    pertanyaan:
+        type: keyword
+        options:
+            exact: false
+            default: none
+            keywords:
+                nama:
+                    - kamu siapa
+                    - nama kamu siapa
+                    - namamu siapa
+                    - siapa kamu
+                    - siapa namamu
+                    - siapa nama kamu
+                makan:
+                    - makan apa
+                    - mau makan apa
+tag: null
+
