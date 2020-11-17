@@ -15,8 +15,8 @@
 					</div>
 				</div>
 				<div v-else class='container-input'>
-					<input type='text' v-model='modelText' placeholder="Your Message">
-					<button @click="sendChat()"><i class="fa fa-paper-plane-o"></i></button>
+					<input type='text' v-model='modelText' placeholder="Your Message" @keyup.enter="sendChat()">
+					<button class="margin-top:1rem" @click="sendChat()"><i class="fa fa-paper-plane-o"></i></button>
 					<!-- <input type='button' value='Send' @click="sendChat()"> -->
 				</div>
     </div>
@@ -83,6 +83,7 @@ export default{
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+	
     .container-header{
         display : flex;
         flex-flow : row;
@@ -123,7 +124,6 @@ export default{
 	width: 100%;
 }
 .container-input{
-	padding: 1rem 5rem;
 	font-size: 2rem;
 	display: flex;
 	flex-flow: row;
@@ -133,50 +133,55 @@ export default{
 }
 .message{
 	font-family: 'Roboto';
+	font-weight: 300;
 	display: block;
 	padding: 1rem 1.5rem;
-	font-size: 1.5rem;
-	margin: 1.5rem 3rem;
+	font-size: 3rem;
 	border-radius: .5rem;
+	margin: 1.5rem 3rem;
 	word-wrap: break-word;
 	max-width: 80%;
 	box-sizing: border-box;
 }
 .message.incoming{
-	background: lightblue;
+	background: #5587e0;
+	align-self: flex-start;
+	color:white;
 }
 .message.outgoing{
-	background: lightgray;
+	background: #f3f3f3;
 	align-self: flex-end;
+	color: #565656;
 }
 input[type="button"] {
-	border-radius: 10px;
-	background-color: #4CAF50;
-	margin: 5px;
+	color:#565656;
+	background-color: #e5e5e5;
 	padding:10px;
-	border: 0;
+	border: 1px;
+	border-style: solid;
+	border-color: #C5C4C4;
 	box-shadow: none;
 	width: 100%;
+	transition: background-color .1s;
 }
-input[type="button"]:hover, button:hover{
-	background-color: black;
+input[type="button"]:hover{
+	background-color: #a5a4a4;
 	color:white;
-
 }
+
+
 input[type=text] {
-  transition: width 0.4s ease-in-out;
-	width: 25%;
-}
-
-input[type=text]:focus, input[type=text]:hover {
   width: 100%;
+  margin-top:1rem ;
 }
 .Buttons{
-	width: 75%;
+	width: 70vw;
+	font-weight: 300;
 	align-content:center;
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
+
 	height: 30%;
 }
 </style>
