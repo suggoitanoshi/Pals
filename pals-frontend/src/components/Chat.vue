@@ -52,7 +52,9 @@ export default{
 			this.socket.emit('auth', this.useHint ? 'A' : 'B');
 			this.socket.emit('name', this.name);
 		});
-		this.socket.on('name', name => this.partnerName = name);
+		this.socket.on('name', name =>{
+			this.partnerName = name;
+		});
 		this.socket.on('message', msg =>{
 			this.incoming = msg;
 			this.outgoing = '';

@@ -1,5 +1,5 @@
 <template>
-	<SideMenu :name="name"/>
+	<SideMenu v-if='name=="Bobby"' :name="name"/>
 	<Chat :name="name"/>
 </template>
 
