@@ -4,16 +4,10 @@
         <p class="name">Bobby</p>
         <router-link to="/">Chat room</router-link>
         <router-link to="/Settings">Settings</router-link>
-        <router-view/>
     </div>
 </template>
 
 <script>
-    import Vue from 'vue'
-    import VueRouter from 'vue-router'
-
-    Vue.use(VueRouter)
-
     export default{
         name : 'SideMenu'
     }

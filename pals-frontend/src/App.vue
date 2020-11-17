@@ -1,17 +1,19 @@
 <template>
-  <body>
-    <SideMenu />
-    <Chat />
-  </body>
+	<div>
+		<SideMenu />
+		<Chat />
+	</div>
 </template>
 
 <script>
 import SideMenu from './views/SideMenu.vue'
+import Chat from './views/Chat'
 
 export default {
   name: 'App',
   components: {
-    SideMenu
+    SideMenu,
+    Chat
   }
 }
 </script>
