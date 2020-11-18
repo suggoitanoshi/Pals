@@ -3,7 +3,7 @@ A web chatting application with response recommendation for people with cerebral
 
 # How To Run
 ## Disclaimer
-Since we have not deploy our website, the solution can not start properly. If you want to test our product, please kindly contact us beforehand.
+Since we have not deployed our website, the solution can not start properly without one of our member's server being turned on. If you want to test our product, please kindly contact us beforehand.
 082216822958 (Alexander) or 13519090@std.stei.itb.ac.id 
 ## Backend
 Used as a "proxy" between user and kata.ai
