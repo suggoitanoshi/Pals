@@ -1,5 +1,6 @@
 <template>
     <div class="tabel">
+        <h1 class="judul">Settings</h1>
         <table>
         <!-- <div class="general"> -->
             <tr>
@@ -46,6 +47,13 @@
         margin:25px;
         font-weight: 300;
         width: 100%;
+        color:#005BBD;
+    }
+    .judul{
+        margin-left: 8rem;
+        margin-top: 4rem;
+        color:#2E89EA;
+
     }
     .td{
         align-content: center;

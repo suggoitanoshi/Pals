@@ -60,7 +60,7 @@ router.post('/', body(), ctx => {
 		hint.hintType = 'nama';
 	}
 	else if(content == 'makan'){
-		hint.hintText = ['Nasi goreng', 'Mie goreng', 'Kentang goreng', 'terserah', 'mau makan apa'];
+		hint.hintText = ['Nasi goreng', 'Mie goreng', 'Kentang goreng','Telur Dadar'];
 	}
 	else if (content == 'minum') {
 		hint.hintText = ['Jus Apel','Air Putih','Susu'];

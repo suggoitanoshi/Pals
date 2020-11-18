@@ -1,7 +1,7 @@
 <template>
 	<div class='container'>
 		<SideMenu v-if='name=="Bobby"' :name="name"/>
-		<Chat :name="name" alamat="Jl. Ganesha no 10" umur="18" />
+		<Chat :name="name" alamat="Jl. Ganesha no 10" umur="13.5" />
 	</div>
 </template>
 

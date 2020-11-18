@@ -10,7 +10,7 @@
 				</div>
 				<div class='container-input' v-if='useHint'>
 					<div class="Buttons">
-						<input type='button' v-for="hint in hintText" :key="hint"
+						<input class='hint' type='button' v-for="hint in hintText" :key="hint"
 						:value='hint' @click="sendChat(hint)">
 					</div>
 				</div>
@@ -113,38 +113,39 @@ export default{
     }
 
 .container-chat{
-	width: 100%;
 	box-sizing: border-box;
+	display: flex;
+	flex-flow: column;
+	flex: 1 1 auto;
 }
 .container-message{
 	padding: 1rem .3rem;
 	display: flex;
 	flex-flow: column;
-	height: 35%;
-	width: 100%;
+	flex: 1 1 auto;
 }
 .container-input{
 	font-size: 2rem;
 	display: flex;
-	flex-flow: row;
-	align-items:center;
-	justify-items:center;
-	align-content:center;
-	justify-content:center;
-	width:90vw;
-	height:2rem;
-	padding-left:20px;
+	width: 100%;
+	flex: 0 1 auto;
+}
+.container-input .hint{
+	border-radius: 0;
+	padding: 1rem 2rem;
+	font-size: 3.5rem;
+	height: initial;
 }
 .container-input input{
 	outline:none;
 	font-size: 20px;
-	height:2.3rem;
 	padding-left:20px;
 	margin-right:5px;
 	border-radius:100px;
 	border : 1px solid #565656;
 	color : #565656;
 }
+
 .message{
 	font-family: 'Roboto';
 	font-weight: 300;
@@ -188,22 +189,22 @@ input[type=text] {
   width: 100%;
 }
 .Buttons{
-	width: 70vw;
+	width: 100%;
 	font-weight: 300;
 	align-content:center;
-	display: flex;
 	flex-flow: column;
 	justify-content: center;
-	height: 30%;
 }
 
 .button-send{
-	height:43px;
-	width : 43px;
+	--size: 4rem;
+	height: var(--size);
+	width : var(--size);
 	border-radius:50%;
 	border:1px solid #565656;
 	outline:none;
 	background-color: #2053af;
+	font-size: calc(var(--size)/3);
 }
 .fa-paper-plane-o{
 	color :#e5e5e5;
