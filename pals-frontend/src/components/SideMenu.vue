@@ -22,7 +22,6 @@
 				align-items: center;
 				justify-items: center;
 				height : 100vh;
-				width : 30vw;
 				min-width:300px;
 				padding : none;
 				background-color : #2053AF;

@@ -2,7 +2,7 @@
     <div class="container-chat">
         <div class="container-header">
             <div class="pink"></div>
-            <p>{{ partnerName }}</p>
+            <p>Mom</p>
         </div>
         <div class="container-message">
 					<div v-if="incoming" class='message incoming'>{{ incoming }}</div>
@@ -203,8 +203,11 @@ input[type=text] {
 	border-radius:50%;
 	border:1px solid #565656;
 	outline:none;
+	background-color: #2053af;
 }
-
+.fa-paper-plane-o{
+	color :#e5e5e5;
+}
 
 
 
