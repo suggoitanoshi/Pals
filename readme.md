@@ -1,9 +1,9 @@
 # Pals
-A web chatting application with response recommendation for people with cerebral palsy. This product is still in development, we currently use two accounts(Mom & Bobby) to Demonstrate the functionality of our product.
+A web chatting application with response recommendation for people with cerebral palsy. This product is still in development, we currently use two accounts(Mom & Bobby) to demonstrate the functionality of our product.
 
 # How To Run
 ## Disclaimer
-Since we have not deploy our website, the solution can not properly start. If you want to test our product, please kindly contact us beforehand.
+Since we have not deploy our website, the solution can not start properly. If you want to test our product, please kindly contact us beforehand.
 082216822958 (Alexander) or 13519090@std.stei.itb.ac.id 
 ## Backend
 Used as a "proxy" between user and kata.ai
