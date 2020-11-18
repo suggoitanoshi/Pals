@@ -16,7 +16,7 @@
 				</div>
 				<div v-else class='container-input'>
 					<input type='text' v-model='modelText' placeholder="Your Message" @keyup.enter="sendChat()">
-					<button class="margin-top:1rem" @click="sendChat()"><i class="fa fa-paper-plane-o"></i></button>
+					<button class="button-send" @click="sendChat()"><i class="fa fa-paper-plane-o"></i></button>
 					<!-- <input type='button' value='Send' @click="sendChat()"> -->
 				</div>
     </div>
@@ -127,9 +127,23 @@ export default{
 	font-size: 2rem;
 	display: flex;
 	flex-flow: row;
+	align-items:center;
+	justify-items:center;
+	align-content:center;
+	justify-content:center;
+	width:90vw;
+	height:2rem;
+	padding-left:20px;
 }
 .container-input input{
-	font-size: 2rem;
+	outline:none;
+	font-size: 20px;
+	height:2.3rem;
+	padding-left:20px;
+	margin-right:5px;
+	border-radius:100px;
+	border : 1px solid #565656;
+	color : #565656;
 }
 .message{
 	font-family: 'Roboto';
@@ -172,7 +186,6 @@ input[type="button"]:hover{
 
 input[type=text] {
   width: 100%;
-  margin-top:1rem ;
 }
 .Buttons{
 	width: 70vw;
@@ -181,7 +194,19 @@ input[type=text] {
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
-
 	height: 30%;
 }
+
+.button-send{
+	height:43px;
+	width : 43px;
+	border-radius:50%;
+	border:1px solid #565656;
+	outline:none;
+}
+
+
+
+
+
 </style>

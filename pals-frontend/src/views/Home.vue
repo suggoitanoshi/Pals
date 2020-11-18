@@ -28,6 +28,8 @@ export default {
   height : 100%;
 }
 .container-home{
+	margin : 0;
+  text-align:center;
   display : flex;
   flex-flow:column;
   align-items:center;
@@ -36,7 +38,7 @@ export default {
   background-color : #2053AF;
   border-radius : 10px;
   width : 30vw;
-  height : 30vh;
+  height : 35vh;
 }
 
 .logo{
@@ -44,8 +46,8 @@ export default {
 	background-size: contain;
 	background-repeat: no-repeat;
 	--scale: 0.2;
-	width: calc(1247px * var(--scale));
-	height: calc(617px * var(--scale));
+	min-width: calc(1247px * var(--scale));
+	min-height: calc(617px * var(--scale));
 	margin-bottom: 20px;
 }
 
@@ -56,14 +58,15 @@ export default {
 }
 
 .button-home{
-  width : 10vw;
-  padding : 10px 0px 10px 0px;
+  width : 13vw;
+  padding : 20px 0px 20px 0px;
   background-color:#ffffff;
-  margin-bottom : 10px;
   border-radius : 5px;
   text-align:center;
+  margin:10px 0px 10px 0px;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
   color : #2053AF;
+  font-size:24px;
 }
 </style>

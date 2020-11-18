@@ -21,6 +21,7 @@ export default {
 	font-weight: 300;
   }
 	.container{
+		overflow:hidden;
 		display: flex;
 		flex-flow: row;
 		width: 100vw;
