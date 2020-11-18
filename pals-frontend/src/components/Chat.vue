@@ -2,7 +2,7 @@
     <div class="container-chat">
         <div class="container-header">
             <div class="pink"></div>
-            <p>Mom</p>
+            <p>{{partnerName}}</p>
         </div>
         <div class="container-message">
 					<div v-if="incoming" class='message incoming'>{{ incoming }}</div>
